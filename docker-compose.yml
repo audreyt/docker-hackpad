@@ -4,8 +4,12 @@ hackpad:
    - "9000:9000"
   links:
    - mysql
+environment:
+  TOP_DOMAINS: pad.g0v.link
 mysql:
   image: mysql
+  volumes:
+   - ./var:/var/lib/mysql  
   environment:
     MYSQL_ROOT_PASSWORD: root_password
     MYSQL_USER: hackpad
